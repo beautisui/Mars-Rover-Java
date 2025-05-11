@@ -31,4 +31,21 @@ public enum Direction {
         }
         return this;
     }
+
+
+    public Position move(Position position) {
+        switch (this) {
+            case NORTH:
+                return new Position(position.getX(), position.getY() + 1);
+            case SOUTH:
+                return new Position(position.getX(), position.getY() - 1);
+            case EAST:
+                return new Position(position.getX() + 1, position.getY());
+            case WEST:
+                return new Position(position.getX() - 1, position.getY());
+            default:
+                throw new IllegalStateException("Unexpected value: " + this);
+        }
+    }
+
 }

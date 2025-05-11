@@ -33,4 +33,20 @@ class RoverTest {
         rover.turnRight();
         assertEquals(SOUTH, rover.getDirection());
     }
+
+    @Test
+    void shouldMoveForwardWhenFacingNorth() {
+        Rover rover = new Rover(0, 0, NORTH);
+        rover.moveForward();
+        assertEquals(0, rover.getX());
+        assertEquals(1, rover.getY());
+    }
+
+    @Test
+    void shouldMoveForwardWhenFacingSouth() {
+        Rover rover = new Rover(0, 1, SOUTH);
+        rover.moveForward();
+        assertEquals(0, rover.getX());
+        assertEquals(0, rover.getY());
+    }
 }

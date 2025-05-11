@@ -1,8 +1,8 @@
 package com.tw.step.models;
 
 public class Rover {
-    private final int x;
-    private final int y;
+    private int x;
+    private int y;
     private Direction direction;
 
     public Rover(int x, int y, Direction direction) {
@@ -22,4 +22,20 @@ public class Rover {
     public Direction getDirection() {
         return this.direction;
     }
+
+
+    public int getX() {
+        return this.x;
+    }
+
+    public int getY() {
+        return this.y;
+    }
+
+    public void moveForward() {
+        Position newPosition = direction.move(new Position(this.x, this.y));
+        this.x = newPosition.getX();
+        this.y = newPosition.getY();
+    }
+
 }
