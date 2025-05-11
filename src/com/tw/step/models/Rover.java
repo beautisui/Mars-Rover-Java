@@ -11,31 +11,42 @@ public class Rover {
         this.direction = direction;
     }
 
+    public void processInstructions(String instructions) {
+        for (char instruction : instructions.toCharArray()) {
+            if (instruction == 'L') {
+                turnLeft();
+            } else if (instruction == 'R') {
+                turnRight();
+            } else if(instruction == 'M') {
+                moveForward();
+            }
+        }
+    }
+
     public void turnLeft() {
-        this.direction = this.direction.turnLeft();
+        direction = direction.turnLeft();
     }
 
     public void turnRight() {
-        this.direction = this.direction.turnRight();
-    }
-
-    public Direction getDirection() {
-        return this.direction;
-    }
-
-
-    public int getX() {
-        return this.x;
-    }
-
-    public int getY() {
-        return this.y;
+        direction = direction.turnRight();
     }
 
     public void moveForward() {
-        Position newPosition = direction.move(new Position(this.x, this.y));
+        Position newPosition = direction.move(new Position(x, y));
         this.x = newPosition.getX();
         this.y = newPosition.getY();
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public Direction getDirection() {
+        return direction;
+    }
 }
+
