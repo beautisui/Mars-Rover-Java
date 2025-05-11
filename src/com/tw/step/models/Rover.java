@@ -3,7 +3,7 @@ package com.tw.step.models;
 public class Rover {
     private final int x;
     private final int y;
-    private final Direction direction;
+    private Direction direction;
 
     public Rover(int x, int y, Direction direction) {
         this.x = x;
@@ -12,9 +12,14 @@ public class Rover {
     }
 
     public void turnLeft() {
+        this.direction = this.direction.turnLeft();
+    }
+
+    public void turnRight() {
+        this.direction = this.direction.turnRight();
     }
 
     public Direction getDirection() {
-        return Direction.WEST;
+        return this.direction;
     }
 }
